@@ -1,6 +1,6 @@
 export const profile = {
   name: "Marya Getu",
-  headline: "Frontend Developer & Full-Stack Developer",
+  headline: "Frontend & Full-Stack Developer",
   intro: "I build clear, responsive web apps with React, Next.js and TypeScript, and I narrate Amharic poems and books.",
   about: "I'm a fifth-year Computer Science and Engineering student at Adama Science and Technology University. I have worked on team projects from a hackathon, an internship and company work, always on the frontend. I'm learning data analytics at ALX, I'm trained in data annotation, and I've studied graphic design and video editing.",
   quote: "I have overcome yesterday by leaning on You, and I will face tomorrow too, because You are my Father.",
@@ -9,6 +9,12 @@ export const profile = {
   github: "https://github.com/EMAR2722",
   linkedin: "https://www.linkedin.com/in/marya-getu-14003b319",
   telegram: "https://t.me/Mar_ye_27",
+  available: true,
+  stats: [
+    { label: "5th Year, Computer Science & Engineering at ASTU" },
+    { label: "8 Projects" },
+    { label: "3+ Years of volunteering" },
+  ],
 };
 export const skills = [
   { group: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"] },
@@ -19,20 +25,20 @@ export const skills = [
 // TODO: edit descriptions below. repo: null hides the code button (use for private repos).
 export const projects = [
   { title: "Gibi Gubae Management System", tag: "Hackathon 2026", stack: ["React", "Django REST", "PostgreSQL", "JWT", "Chapa"],
-    text: "Platform for a campus community to manage students, service groups, donations and anonymous counseling, with Student and Admin roles and Chapa payments.", repo: null as string | null },
+    text: "Platform for a campus community to manage students, service groups, donations and anonymous counseling, with Student and Admin roles and Chapa payments.", repo: "https://github.com/AGT-HUB-ASTU-Gibi-Gubaie/hackathon-2026-HIRUY", featured: true, img: null as string | null },
   { title: "Help Desk Management System", tag: "Company project", stack: ["Next.js", "PostgreSQL"],
-    text: "Team-built help desk for handling support tickets and requests. I worked on the frontend.", repo: null },
+    text: "Team-built help desk for handling support tickets and requests. I worked on the frontend.", repo: "https://github.com/fuadroidd/help-desk-management-system", featured: true, img: "/projects/Helpdisk.jpg" },
   { title: "Driver License School Management System", tag: "Team project", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    text: "Four portals (student, instructor, supervisor, manager) with role-based login, exam management, progress tracking and certificates, built for Ethiopian driving schools.", repo: "https://github.com/Moh-Sad/Driver-License-School-Management-System" },
+    text: "Four portals (student, instructor, supervisor, manager) with role-based login, exam management, progress tracking and certificates, built for Ethiopian driving schools.", repo: "https://github.com/Moh-Sad/Driver-License-School-Management-System", featured: true, img: "/projects/driverlicence.jpg" },
   { title: "Smart Agriculture Monitoring System", tag: "Integrated project", stack: ["Frontend"],
-    text: "Monitoring dashboard built with a team as part of our integrated project.", repo: "https://github.com/bayedhaf/Smart-Agriculture-Monitoring-System-Integrated-Project" },
+    text: "Monitoring dashboard built with a team as part of our integrated project.", repo: "https://github.com/bayedhaf/Smart-Agriculture-Monitoring-System-Integrated-Project", featured: true, img: "/projects/agri.jpg" },
   { title: "Infnova Applicant Dashboard", tag: "Solo project", stack: ["Frontend"],
-    text: "A dashboard for managing applicants.", repo: "https://github.com/EMAR2722/infnova-applicant-dashboard" },
+    text: "A dashboard for managing applicants.", repo: "https://github.com/EMAR2722/infnova-applicant-dashboard", featured: false, img: "/projects/ifnovia.jpg" },
   { title: "University Collaboration System", tag: "Internship", stack: ["React", "Tailwind CSS"],
-    text: "Web platform that helps university departments communicate and share resources, with a clean responsive dashboard.", repo: null },
-  { title: "Radiant Rose Designs", tag: "Solo project", stack: ["Frontend"], text: "A design-focused website I built on my own.", repo: "https://github.com/EMAR2722/radiant-rose-designs" },
+    text: "Web platform that helps university departments communicate and share resources, with a clean responsive dashboard.", repo: null, featured: false, img: null as string | null },
+  { title: "Radiant Rose Designs", tag: "Solo project", stack: ["Frontend"], text: "A design-focused website I built on my own.", repo: "https://github.com/EMAR2722/radiant-rose-designs", featured: false, img: null as string | null },
   { title: "CodeAlpha: Calculator, Music Player, Image Gallery", tag: "CodeAlpha internship", stack: ["HTML", "CSS", "JavaScript"],
-    text: "Three small apps built during my CodeAlpha internship, plus my portfolio site.", repo: "https://github.com/EMAR2722/CodeAlpha_PortfolioSite" },
+    text: "Three small apps built during my CodeAlpha internship, plus my portfolio site.", repo: "https://github.com/EMAR2722/CodeAlpha_PortfolioSite", featured: false, img: null as string | null },
 ];
 export const experience = [
   { when: "Summer 2026", title: "Help Desk Management System Developer", org: "Company project, team of developers", text: "Built the interface and features for a help desk system using Next.js and PostgreSQL." },
@@ -45,6 +51,7 @@ export const certificates = [
   { title: "Data Analysis Fundamentals", org: "Udacity", date: "Dec 2024", note: "", img: "/certs/data-analysis.png", file: "/docs/data-analysis.pdf" },
   { title: "Android Developer Fundamentals", org: "Udacity", date: "Dec 2024", note: "", img: "/certs/android.png", file: "/docs/android.pdf" },
   { title: "Digital Literacy Skills", org: "Dereja, Mastercard Foundation & ASTU", date: "July 2024", note: "", img: "/certs/dereja.png", file: "/docs/dereja.pdf" },
+  { title: "Data Analytics", org: "ALX", date: "In progress", note: "", img: null, file: null },
 ];
 export const voices = [
   { title: "ቅማል በ 10ሺ ብር", src: "/audio/voice1.mp3" },
