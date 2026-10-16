@@ -52,15 +52,25 @@ export function ContactForm() {
   const key = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!key) { setState("error"); return; }
+    if (!key) {
+      console.error("Web3Forms key not found. Please set NEXT_PUBLIC_WEB3FORMS_KEY in .env.local");
+      setState("error");
+      return;
+    }
     setState("sending");
     const fd = new FormData(e.currentTarget);
     fd.append("access_key", key); fd.append("subject", "New message from your portfolio");
     try {
       const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: fd });
       const j = await res.json();
-      if (j.success) { setState("ok"); e.currentTarget.reset(); } else setState("error");
-    } catch { setState("error"); }
+      if (j.success) { setState("ok"); e.currentTarget.reset(); } else {
+        console.error("Web3Forms error:", j);
+        setState("error");
+      }
+    } catch (err) {
+      console.error("Submit error:", err);
+      setState("error");
+    }
   }
   const f = "w-full rounded-xl border border-line bg-card px-4 py-3 outline-none focus:border-accent transition-colors duration-200";
   return (
@@ -75,7 +85,46 @@ export function ContactForm() {
         {state === "sending" ? "Sending…" : "Send message"}
       </button>
       {state === "ok" && <p role="status" className="text-accent fade-in">Message sent. I'll reply to your email soon.</p>}
-      {state === "error" && <p role="alert" className="text-red-500 fade-in">Message not sent. Email me directly at maryagetu04@gmail.com.</p>}
+      {state === "error" && <p role="alert" className="text-red-500 fade-in">Message not sent. Please email me directly at maryagetu04@gmail.com</p>}
     </form>
+  );
+}
+
+export function CertificateGrid({ certificates }: { certificates: Array<{ title: string; org: string; date: string; note: string; img: string | null; file: string | null }> }) {
+  const [showAll, setShowAll] = useState(false);
+  const visibleCertificates = showAll ? certificates : certificates.slice(0, 3);
+  const hasMore = certificates.length > 3;
+
+  return (
+    <>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {visibleCertificates.map((c, i) => (
+          c.img ? (
+            <a key={c.title} href={c.file || "#"} target={c.file ? "_blank" : undefined} rel="noreferrer" className="group overflow-hidden rounded-2xl border border-line bg-card hover-lift" style={{ animationDelay: `${i * 0.1}s` }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={c.img} alt={`${c.title} certificate`} className="h-44 w-full object-cover object-top group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              <div className="p-4">
+                <h3 className="font-semibold group-hover:text-accent transition-colors duration-200">{c.title}</h3>
+                <p className="text-sm text-muted">{c.org} · {c.date}</p>
+                {c.note && <p className="text-sm text-muted">{c.note}</p>}
+              </div>
+            </a>
+          ) : (
+            <div key={c.title} className="rounded-2xl border border-dashed border-line bg-card p-5 hover-lift" style={{ animationDelay: `${i * 0.1}s` }}>
+              <h3 className="font-semibold">{c.title}</h3>
+              <p className="text-sm text-muted">{c.org} · {c.date}</p>
+            </div>
+          )
+        ))}
+      </div>
+      {hasMore && (
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="mt-8 inline-flex items-center rounded-full border-2 border-accent px-6 py-3 font-semibold text-accent hover:bg-accent hover:text-white hover:scale-105 transition-all duration-200"
+        >
+          {showAll ? `Show less (${certificates.length})` : `View all certificates (${certificates.length})`}
+        </button>
+      )}
+    </>
   );
 }

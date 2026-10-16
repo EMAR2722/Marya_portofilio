@@ -52,6 +52,7 @@ export const certificates = [
   { title: "Android Developer Fundamentals", org: "Udacity", date: "Dec 2024", note: "", img: "/certs/android.png", file: "/docs/android.pdf" },
   { title: "Digital Literacy Skills", org: "Dereja, Mastercard Foundation & ASTU", date: "July 2024", note: "", img: "/certs/dereja.png", file: "/docs/dereja.pdf" },
   { title: "Data Analytics", org: "ALX", date: "In progress", note: "", img: null, file: null },
+  { title: "AGT", org: "AGT", date: "2025", note: "", img: "/certs/agt.jpg", file: "/certs/agt.jpg" },
 ];
 export const voices = [
   { title: "ቅማል በ 10ሺ ብር", src: "/audio/voice1.mp3" },
