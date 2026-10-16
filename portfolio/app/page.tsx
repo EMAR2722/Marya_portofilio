@@ -1,19 +1,22 @@
 import { profile, skills, projects, experience, certificates, voices } from "@/lib/data";
 import { ThemeToggle, Track, ContactForm } from "./client";
+import Link from "next/link";
 
 const H = ({ id, children }: { id: string; children: React.ReactNode }) => (
   <h2 id={id} className="font-display text-3xl font-bold sm:text-4xl">{children}</h2>
 );
 const Sec = ({ id, title, children }: { id: string; title: string; children: React.ReactNode }) => (
-  <section aria-labelledby={id} className="mx-auto max-w-5xl px-5 py-16 sm:py-20"><H id={id}>{title}</H><div className="mt-8">{children}</div></section>
+  <section aria-labelledby={id} className="mx-auto max-w-[1200px] px-5 py-16 sm:px-6 sm:py-20 lg:px-8"><H id={id}>{title}</H><div className="mt-8">{children}</div></section>
 );
+
+const featuredProjects = projects.filter(p => p.featured);
 
 export default function Home() {
   const links = [["About", "#about"], ["Projects", "#projects"], ["Experience", "#exp"], ["Voice", "#voice"], ["Certificates", "#certs"], ["Contact", "#contact"]];
   return (
     <main>
       <header className="sticky top-0 z-10 border-b border-line bg-bg/90 backdrop-blur">
-        <nav className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3 text-sm">
+        <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3 text-sm sm:px-6 lg:px-8">
           <a href="#top" className="font-display text-lg font-bold">Marya Getu</a>
           <div className="flex items-center gap-5">
             <div className="hidden gap-5 sm:flex">{links.map(([l, h]) => <a key={h} href={h} className="text-muted hover:text-ink">{l}</a>)}</div>
@@ -23,34 +26,30 @@ export default function Home() {
         </nav>
       </header>
 
-      <section id="top" className="mx-auto max-w-5xl px-5 py-14 sm:py-24">
-        <div className="hero-in">
-          {profile.available && <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800 dark:bg-green-900 dark:text-green-200">Available for work</span>}
-          <h1 className="mt-4 font-display text-5xl font-bold leading-[1.05] sm:text-7xl">{profile.name}</h1>
-          <p className="mt-4 text-xl font-semibold text-accent">{profile.headline}</p>
-          <p className="mt-5 max-w-md text-lg text-muted">{profile.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="/docs/Marya_Getu_Resume.pdf" download className="rounded-full bg-accent px-6 py-3 font-semibold text-white hover:bg-amber-600">Download resume</a>
-            <a href="#certs" className="rounded-full border border-line px-6 py-3 font-semibold hover:border-accent">View certificates</a>
-            <a href="#contact" className="rounded-full border border-line px-6 py-3 font-semibold hover:border-accent">Contact me</a>
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {profile.stats.map((stat, i) => (
-            <div key={i} className="hero-in rounded-2xl border border-line bg-card p-5" style={{ animationDelay: `${i * 0.1}s` }}>
-              <p className="font-semibold">{stat.label}</p>
+      <section id="top" className="mx-auto max-w-[1200px] px-5 py-14 sm:px-6 sm:py-24 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+          <div className="hero-in">
+            {profile.available && <span className="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800 dark:bg-green-900 dark:text-green-200">Available for work</span>}
+            <h1 className="mt-4 font-display text-5xl font-bold leading-[1.05] sm:text-7xl">{profile.name}</h1>
+            <p className="mt-4 text-xl font-semibold text-accent">{profile.headline}</p>
+            <p className="mt-5 max-w-md text-lg text-muted">{profile.intro}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="/docs/Marya_Getu_Resume.pdf" download className="rounded-full bg-accent px-6 py-3 font-semibold text-white hover:bg-amber-600">Download resume</a>
+              <a href="#certs" className="rounded-full border border-line px-6 py-3 font-semibold hover:border-accent">View certificates</a>
+              <a href="#contact" className="rounded-full border border-line px-6 py-3 font-semibold hover:border-accent">Contact me</a>
             </div>
-          ))}
-        </div>
-
-        <div className="mt-12 grid gap-10 md:grid-cols-[1.2fr_1fr]">
-          <div className="hero-in" style={{ animationDelay: "0.3s" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/marya.jpg" alt="Marya Getu" className="aspect-[4/5] w-full rounded-t-[999px] rounded-b-3xl border-4 border-accent object-cover object-top" />
+            <div className="mt-12 grid gap-4 sm:grid-cols-3">
+              {profile.stats.map((stat, i) => (
+                <div key={i} className="hero-in rounded-2xl border border-line bg-card p-5" style={{ animationDelay: `${i * 0.1}s` }}>
+                  <p className="font-semibold">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="hero-in flex items-end" style={{ animationDelay: "0.4s" }}>
-            <div className="rounded-2xl border border-line bg-card p-5 shadow-lg">
+          <div className="hero-in flex flex-col items-center lg:items-end" style={{ animationDelay: "0.3s" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/marya.jpg" alt="Marya Getu" className="aspect-[4/5] w-full max-w-sm rounded-t-[999px] rounded-b-3xl border-4 border-accent object-cover object-top" />
+            <div className="mt-4 rounded-2xl border border-line bg-card p-5 shadow-lg">
               <p className="font-display text-lg font-semibold">Marya Getu</p>
               <p className="text-sm text-muted">Frontend & Full-Stack Developer</p>
             </div>
@@ -73,15 +72,20 @@ export default function Home() {
 
       <Sec id="projects" title="Featured Projects">
         <div className="grid gap-5 md:grid-cols-2">
-          {projects.map((p) => (
-            <article key={p.title} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
-              <div className="h-48 bg-neutral-100 dark:bg-neutral-800">
-                {/* Placeholder for project screenshot */}
-                <div className="flex h-full items-center justify-center text-muted">
-                  <span className="text-sm">Project screenshot</span>
+          {featuredProjects.map((p) => (
+            <article key={p.title} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card h-full">
+              {p.img ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={p.img} alt={`${p.title} screenshot`} className="h-48 w-full object-cover object-top shrink-0" loading="lazy" />
+              ) : (
+                <div className="h-48 bg-neutral-100 dark:bg-neutral-800 shrink-0">
+                  {/* Placeholder for project screenshot */}
+                  <div className="flex h-full items-center justify-center text-muted">
+                    <span className="text-sm">Project screenshot</span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
+              )}
+              <div className="p-6 flex flex-col flex-1">
                 <p className="text-sm font-semibold text-accent">{p.tag}</p>
                 <h3 className="mt-1 font-display text-xl font-bold">{p.title}</h3>
                 <p className="mt-3 flex-1 text-muted">{p.text}</p>
@@ -91,13 +95,18 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <div className="mt-8">
+          <Link href="/projects" className="inline-flex items-center rounded-full border-2 border-accent px-6 py-3 font-semibold text-accent hover:bg-accent hover:text-white transition-colors">
+            View all projects ({projects.length})
+          </Link>
+        </div>
       </Sec>
 
       <Sec id="exp" title="Experience">
         <ol className="space-y-6 border-l-2 border-line pl-6">
           {experience.map((e) => (
             <li key={e.title} className="relative">
-              <span className="absolute -left-[31px] top-2 h-3 w-3 rounded-full bg-accent" />
+              <span className="absolute -left-[29px] top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-accent" />
               <p className="text-sm font-semibold text-accent">{e.when}</p>
               <h3 className="text-lg font-semibold">{e.title}</h3>
               <p className="text-muted">{e.org}</p>
@@ -108,7 +117,7 @@ export default function Home() {
       </Sec>
 
       <section id="voice" aria-labelledby="voice" className="bg-dark-section py-16 sm:py-20">
-        <div className="mx-auto max-w-5xl px-5">
+        <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
           <h2 id="voice" className="font-display text-3xl font-bold text-dark-section-text sm:text-4xl">Amharic Voice Narration</h2>
           <p className="mt-4 max-w-2xl text-dark-section-muted">I narrate Amharic poems and book-style pieces. Press play to listen.</p>
           <div className="mt-8 space-y-4">{voices.map((v) => <Track key={v.src} {...v} dark />)}</div>
@@ -144,11 +153,11 @@ export default function Home() {
           <div>
             <h3 className="font-display text-xl font-semibold">Get in touch</h3>
             <ul className="mt-4 space-y-3 text-lg">
-              <li><a className="hover:text-accent" href={`mailto:${profile.email}`}>{profile.email}</a></li>
-              <li><a className="hover:text-accent" href={`tel:${profile.phone}`}>{profile.phone}</a></li>
-              <li><a className="hover:text-accent" href={profile.telegram} target="_blank" rel="noreferrer">Telegram</a></li>
-              <li><a className="hover:text-accent" href={profile.github} target="_blank" rel="noreferrer">GitHub</a></li>
-              <li><a className="hover:text-accent" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
+              <li><a className="hover:text-accent hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded" href={`mailto:${profile.email}`}>{profile.email}</a></li>
+              <li><a className="hover:text-accent hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded" href={`tel:${profile.phone}`}>{profile.phone}</a></li>
+              <li><a className="hover:text-accent hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded" href={profile.telegram} target="_blank" rel="noreferrer">Telegram</a></li>
+              <li><a className="hover:text-accent hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded" href={profile.github} target="_blank" rel="noreferrer">GitHub</a></li>
+              <li><a className="hover:text-accent hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
             </ul>
           </div>
         </div>

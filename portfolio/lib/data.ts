@@ -25,20 +25,20 @@ export const skills = [
 // TODO: edit descriptions below. repo: null hides the code button (use for private repos).
 export const projects = [
   { title: "Gibi Gubae Management System", tag: "Hackathon 2026", stack: ["React", "Django REST", "PostgreSQL", "JWT", "Chapa"],
-    text: "Platform for a campus community to manage students, service groups, donations and anonymous counseling, with Student and Admin roles and Chapa payments.", repo: null as string | null },
+    text: "Platform for a campus community to manage students, service groups, donations and anonymous counseling, with Student and Admin roles and Chapa payments.", repo: null as string | null, featured: true, img: null as string | null },
   { title: "Help Desk Management System", tag: "Company project", stack: ["Next.js", "PostgreSQL"],
-    text: "Team-built help desk for handling support tickets and requests. I worked on the frontend.", repo: null },
+    text: "Team-built help desk for handling support tickets and requests. I worked on the frontend.", repo: null, featured: true, img: "/projects/Helpdisk.jpg" },
   { title: "Driver License School Management System", tag: "Team project", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-    text: "Four portals (student, instructor, supervisor, manager) with role-based login, exam management, progress tracking and certificates, built for Ethiopian driving schools.", repo: "https://github.com/Moh-Sad/Driver-License-School-Management-System" },
+    text: "Four portals (student, instructor, supervisor, manager) with role-based login, exam management, progress tracking and certificates, built for Ethiopian driving schools.", repo: "https://github.com/Moh-Sad/Driver-License-School-Management-System", featured: true, img: "/projects/driverlicence.jpg" },
   { title: "Smart Agriculture Monitoring System", tag: "Integrated project", stack: ["Frontend"],
-    text: "Monitoring dashboard built with a team as part of our integrated project.", repo: "https://github.com/bayedhaf/Smart-Agriculture-Monitoring-System-Integrated-Project" },
+    text: "Monitoring dashboard built with a team as part of our integrated project.", repo: "https://github.com/bayedhaf/Smart-Agriculture-Monitoring-System-Integrated-Project", featured: true, img: "/projects/agri.jpg" },
   { title: "Infnova Applicant Dashboard", tag: "Solo project", stack: ["Frontend"],
-    text: "A dashboard for managing applicants.", repo: "https://github.com/EMAR2722/infnova-applicant-dashboard" },
+    text: "A dashboard for managing applicants.", repo: "https://github.com/EMAR2722/infnova-applicant-dashboard", featured: false, img: "/projects/ifnovia.jpg" },
   { title: "University Collaboration System", tag: "Internship", stack: ["React", "Tailwind CSS"],
-    text: "Web platform that helps university departments communicate and share resources, with a clean responsive dashboard.", repo: null },
-  { title: "Radiant Rose Designs", tag: "Solo project", stack: ["Frontend"], text: "A design-focused website I built on my own.", repo: "https://github.com/EMAR2722/radiant-rose-designs" },
+    text: "Web platform that helps university departments communicate and share resources, with a clean responsive dashboard.", repo: null, featured: false, img: null as string | null },
+  { title: "Radiant Rose Designs", tag: "Solo project", stack: ["Frontend"], text: "A design-focused website I built on my own.", repo: "https://github.com/EMAR2722/radiant-rose-designs", featured: false, img: null as string | null },
   { title: "CodeAlpha: Calculator, Music Player, Image Gallery", tag: "CodeAlpha internship", stack: ["HTML", "CSS", "JavaScript"],
-    text: "Three small apps built during my CodeAlpha internship, plus my portfolio site.", repo: "https://github.com/EMAR2722/CodeAlpha_PortfolioSite" },
+    text: "Three small apps built during my CodeAlpha internship, plus my portfolio site.", repo: "https://github.com/EMAR2722/CodeAlpha_PortfolioSite", featured: false, img: null as string | null },
 ];
 export const experience = [
   { when: "Summer 2026", title: "Help Desk Management System Developer", org: "Company project, team of developers", text: "Built the interface and features for a help desk system using Next.js and PostgreSQL." },
