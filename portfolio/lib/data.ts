@@ -25,9 +25,9 @@ export const skills = [
 // TODO: edit descriptions below. repo: null hides the code button (use for private repos).
 export const projects = [
   { title: "Gibi Gubae Management System", tag: "Hackathon 2026", stack: ["React", "Django REST", "PostgreSQL", "JWT", "Chapa"],
-    text: "Platform for a campus community to manage students, service groups, donations and anonymous counseling, with Student and Admin roles and Chapa payments.", repo: null as string | null, featured: true, img: null as string | null },
+    text: "Platform for a campus community to manage students, service groups, donations and anonymous counseling, with Student and Admin roles and Chapa payments.", repo: "https://github.com/AGT-HUB-ASTU-Gibi-Gubaie/hackathon-2026-HIRUY", featured: true, img: null as string | null },
   { title: "Help Desk Management System", tag: "Company project", stack: ["Next.js", "PostgreSQL"],
-    text: "Team-built help desk for handling support tickets and requests. I worked on the frontend.", repo: null, featured: true, img: "/projects/Helpdisk.jpg" },
+    text: "Team-built help desk for handling support tickets and requests. I worked on the frontend.", repo: "https://github.com/fuadroidd/help-desk-management-system", featured: true, img: "/projects/Helpdisk.jpg" },
   { title: "Driver License School Management System", tag: "Team project", stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     text: "Four portals (student, instructor, supervisor, manager) with role-based login, exam management, progress tracking and certificates, built for Ethiopian driving schools.", repo: "https://github.com/Moh-Sad/Driver-License-School-Management-System", featured: true, img: "/projects/driverlicence.jpg" },
   { title: "Smart Agriculture Monitoring System", tag: "Integrated project", stack: ["Frontend"],
