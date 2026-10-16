@@ -1,0 +1,9 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root{--bg:#F5F7FA;--ink:#14213D;--muted:#566176;--card:#FFFFFF;--line:#DCE2EB;--accent:#0B8585}
+.dark{--bg:#0D1526;--ink:#E9EFF8;--muted:#9AA8BF;--card:#15203A;--line:#26334F;--accent:#35C9C9}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.65}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-in{animation:rise .8s ease both}
