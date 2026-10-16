@@ -1,6 +1,6 @@
 export const profile = {
   name: "Marya Getu",
-  headline: "Frontend Developer & Full-Stack Developer",
+  headline: "Frontend & Full-Stack Developer",
   intro: "I build clear, responsive web apps with React, Next.js and TypeScript, and I narrate Amharic poems and books.",
   about: "I'm a fifth-year Computer Science and Engineering student at Adama Science and Technology University. I have worked on team projects from a hackathon, an internship and company work, always on the frontend. I'm learning data analytics at ALX, I'm trained in data annotation, and I've studied graphic design and video editing.",
   quote: "I have overcome yesterday by leaning on You, and I will face tomorrow too, because You are my Father.",
@@ -9,6 +9,12 @@ export const profile = {
   github: "https://github.com/EMAR2722",
   linkedin: "https://www.linkedin.com/in/marya-getu-14003b319",
   telegram: "https://t.me/Mar_ye_27",
+  available: true,
+  stats: [
+    { label: "5th Year, Computer Science & Engineering at ASTU" },
+    { label: "8 Projects" },
+    { label: "3+ Years of volunteering" },
+  ],
 };
 export const skills = [
   { group: "Frontend", items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"] },
@@ -45,6 +51,7 @@ export const certificates = [
   { title: "Data Analysis Fundamentals", org: "Udacity", date: "Dec 2024", note: "", img: "/certs/data-analysis.png", file: "/docs/data-analysis.pdf" },
   { title: "Android Developer Fundamentals", org: "Udacity", date: "Dec 2024", note: "", img: "/certs/android.png", file: "/docs/android.pdf" },
   { title: "Digital Literacy Skills", org: "Dereja, Mastercard Foundation & ASTU", date: "July 2024", note: "", img: "/certs/dereja.png", file: "/docs/dereja.pdf" },
+  { title: "Data Analytics", org: "ALX", date: "In progress", note: "", img: null, file: null },
 ];
 export const voices = [
   { title: "ቅማል በ 10ሺ ብር", src: "/audio/voice1.mp3" },

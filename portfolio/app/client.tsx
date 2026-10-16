@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
-export function Track({ title, src }: { title: string; src: string }) {
+export function Track({ title, src, dark }: { title: string; src: string; dark?: boolean }) {
   const ref = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0);
@@ -28,19 +28,19 @@ export function Track({ title, src }: { title: string; src: string }) {
     const r = e.currentTarget.getBoundingClientRect(); a.currentTime = ((e.clientX - r.left) / r.width) * d;
   };
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-line bg-card p-4">
+    <div className={`flex items-center gap-4 rounded-2xl border border-line p-4 ${dark ? "bg-[#1A3E32] border-[#2A4E42]" : "bg-card"}`}>
       <audio ref={ref} src={src} preload="metadata"
         onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)}
         onLoadedMetadata={(e) => setD(e.currentTarget.duration)} onTimeUpdate={(e) => setT(e.currentTarget.currentTime)} />
       <button onClick={toggle} aria-label={playing ? `Pause ${title}` : `Play ${title}`}
         className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-accent text-lg text-white">{playing ? "❚❚" : "▶"}</button>
       <div className="min-w-0 flex-1">
-        <p className="font-ethiopic text-lg font-semibold">{title}</p>
+        <p className={`font-ethiopic text-lg font-semibold ${dark ? "text-dark-section-text" : ""}`}>{title}</p>
         <div className="mt-2 flex items-center gap-3">
-          <div onClick={seek} className="h-2 flex-1 cursor-pointer overflow-hidden rounded-full bg-line">
+          <div onClick={seek} className={`h-2 flex-1 cursor-pointer overflow-hidden rounded-full ${dark ? "bg-[#2A4E42]" : "bg-line"}`}>
             <div className="h-full bg-accent" style={{ width: d ? `${(t / d) * 100}%` : "0%" }} />
           </div>
-          <span className="w-20 text-right text-xs tabular-nums text-muted">{fmt(t)} / {d ? fmt(d) : "0:00"}</span>
+          <span className={`w-20 text-right text-xs tabular-nums ${dark ? "text-dark-section-muted" : "text-muted"}`}>{fmt(t)} / {d ? fmt(d) : "0:00"}</span>
         </div>
       </div>
     </div>
