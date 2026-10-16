@@ -42,16 +42,9 @@ export default function ProjectsPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {projects.map((p) => (
             <article key={p.title} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card h-full">
-              {p.img ? (
+              {p.img && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={p.img} alt={`${p.title} screenshot`} className="h-48 w-full object-cover object-top shrink-0" loading="lazy" />
-              ) : (
-                <div className="h-48 bg-neutral-100 dark:bg-neutral-800 shrink-0">
-                  {/* Placeholder for project screenshot */}
-                  <div className="flex h-full items-center justify-center text-muted">
-                    <span className="text-sm">Project screenshot</span>
-                  </div>
-                </div>
               )}
               <div className="p-6 flex flex-col flex-1">
                 <p className="text-sm font-semibold text-accent">{p.tag}</p>
